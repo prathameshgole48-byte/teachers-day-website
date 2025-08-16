@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers' Day Celebration - Tilak Junior College</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Particles Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1.5" fill="rgba(255,255,255,0.15)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="10" r="2.5" fill="rgba(255,255,255,0.08)"/><circle cx="10" cy="90" r="1.8" fill="rgba(255,255,255,0.12)"/><circle cx="70" cy="30" r="1.2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Page Styles */
+        .page {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+            padding: 50px;
+            text-align: center;
+            min-height: 85vh;
+            display: none;
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .page.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Enhanced Header Styles */
+        .college-header {
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 3px solid transparent;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcf7f, #4d9de0) 0 100%/100% 3px no-repeat;
+            position: relative;
+        }
+
+        .logo {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            animation: logoFloat 4s ease-in-out infinite;
+            position: relative;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f, #4d9de0);
+            border-radius: 50%;
+            z-index: -1;
+            animation: borderRotate 3s linear infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .logo img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .college-name {
+            font-size: 2.8em;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            letter-spacing: -1px;
+        }
+
+        .college-motto {
+            font-size: 1.2em;
+            color: #6c757d;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* Enhanced Welcome Page */
+        .welcome-content {
+            margin-top: 40px;
+        }
+
+        .welcome-title {
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            font-weight: 700;
+            animation: titlePulse 3s ease-in-out infinite;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .welcome-message {
+            font-size: 1.4em;
+            color: #495057;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Enhanced Questionnaire Styles */
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcf7f, #4d9de0);
+            border-radius: 20px;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: progressShimmer 2s infinite;
+        }
+
+        @keyframes progressShimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .question-counter {
+            font-size: 1.2em;
+            color: #6c757d;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transform: translateY(20px);
+            animation: cardSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes cardSlideIn {
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .question-text {
+            font-size: 1.6em;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .answer-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .answer-btn {
+            padding: 20px 50px;
+            font-size: 1.3em;
+            border: 3px solid transparent;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            min-width: 150px;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .answer-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .answer-btn:hover::before {
+            left: 100%;
+        }
+
+        .answer-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .answer-btn.selected {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(40, 167, 69, 0.5);
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 1.2em;
+            margin-top: 20px;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.3s ease;
+            background: rgba(220, 53, 69, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .error-message.show {
+            opacity: 1;
+            transform: translateY(-10px);
+        }
+
+        /* Enhanced Results Page */
+        .profile-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 30px;
+            padding: 50px;
+            margin: 30px 0;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: profileGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes profileGlow {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+
+        .profile-icon {
+            font-size: 5em;
+            margin-bottom: 25px;
+            animation: iconBounce 2s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .profile-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-description {
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        .traits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .trait {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 30px;
+            font-size: 1em;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Enhanced Reward Page */
+        .certificate {
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+            border: 6px solid #fff;
+            border-radius: 30px;
+            padding: 50px;
+            margin: 40px 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+        }
+
+        .certificate::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f, #4d9de0);
+            z-index: -1;
+            border-radius: 30px;
+            animation: certificateBorder 3s linear infinite;
+        }
+
+        @keyframes certificateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .certificate-title {
+            font-size: 3em;
+            margin-bottom: 25px;
+            font-weight: 700;
+            animation: certificateTitle 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes certificateTitle {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        .certificate-message {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .special-message {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 25px;
+            font-size: 1.2em;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Enhanced Buttons */
+        .btn {
+            display: inline-block;
+            padding: 18px 50px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 15px;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d, #495057);
+            color: white;
+            box-shadow: 0 10px 30px rgba(108, 117, 125, 0.4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(108, 117, 125, 0.6);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            box-shadow: 0 10px 30px rgba(40, 167, 69, 0.4);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(40, 167, 69, 0.6);
+        }
+
+        /* Enhanced Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .page {
+                padding: 30px;
+                margin: 10px;
+            }
+
+            .college-name {
+                font-size: 2.2em;
+            }
+
+            .welcome-title {
+                font-size: 2.8em;
+            }
+
+            .welcome-message {
+                font-size: 1.2em;
+            }
+
+            .question-text {
+                font-size: 1.3em;
+            }
+
+            .answer-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .answer-btn {
+                width: 250px;
+                margin-bottom: 15px;
+            }
+
+            .traits-list {
+                grid-template-columns: 1fr;
+            }
+
+            .certificate-title {
+                font-size: 2.2em;
+            }
+        }
+
+        /* Enhanced Animation Classes */
+        .fade-in {
+            animation: enhancedFadeIn 1s ease-out;
+        }
+
+        @keyframes enhancedFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .float-animation {
+            animation: enhancedFloating 4s ease-in-out infinite;
+        }
+
+        @keyframes enhancedFloating {
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        /* Success Animation */
+        .success-animation {
+            animation: successPulse 0.6s ease-out;
+        }
+
+        @keyframes successPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Page -->
+        <div id="welcome-page" class="page active">
+            <div class="college-header">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Tilak Junior College Logo">
+                </div>
+                <h1 class="college-name">Tilak Junior College of Science and Commerce</h1>
+                <p class="college-motto">Vashi, Navi Mumbai - Inspiring Excellence in Education</p>
+            </div>
+
+            <div class="welcome-content fade-in">
+                <h2 class="welcome-title float-animation">🌟 Happy Teachers' Day! 🌟</h2>
+                <p class="welcome-message">
+                    Dear Respected Teachers, today we celebrate YOU - the incredible educators who shape minds, inspire dreams, and guide us toward a brighter future. This special interactive journey is our heartfelt tribute to honor your dedication and passion for teaching.
+                    <br><br>
+                    <strong>Discover your unique teaching style and let us celebrate what makes you an extraordinary educator!</strong>
+                </p>
+                <button class="btn btn-primary" onclick="startJourney()">✨ Discover Your Teaching Style</button>
+            </div>
+        </div>
+
+        <!-- Questionnaire Page -->
+        <div id="questionnaire-page" class="page">
+            <div class="college-header">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Tilak Junior College Logo">
+                </div>
+                <h3 class="college-name" style="font-size: 1.8em;">Teaching Style Discovery</h3>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill" style="width: 0%;"></div>
+            </div>
+
+            <div id="question-counter" class="question-counter">Question 1 of 2</div>
+
+            <div class="question-card fade-in">
+                <h3 id="question-text" class="question-text">Do you prefer structured lesson plans and organized classroom management?</h3>
+                <div class="answer-buttons">
+                    <button class="answer-btn" onclick="selectAnswer('yes')">✅ Yes, Absolutely</button>
+                    <button class="answer-btn" onclick="selectAnswer('no')">❌ Not Really</button>
+                </div>
+                <div id="error-message" class="error-message">Please select an answer to continue!</div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <button class="btn btn-primary" onclick="nextQuestion()" id="next-btn">Next Question ➡️</button>
+                <button class="btn btn-secondary" onclick="previousQuestion()" id="prev-btn" style="display: none;">⬅️ Previous</button>
+            </div>
+        </div>
+
+        <!-- Results Page -->
+        <div id="results-page" class="page">
+            <div class="college-header">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Tilak Junior College Logo">
+                </div>
+                <h3 class="college-name" style="font-size: 1.8em;">Your Teaching Personality</h3>
+            </div>
+
+            <div id="profile-result" class="profile-card">
+                <!-- Results will be populated here -->
+            </div>
+
+            <button class="btn btn-success" onclick="showReward()">🎁 Claim Your Appreciation Certificate</button>
+        </div>
+
+        <!-- Reward Page -->
+        <div id="reward-page" class="page">
+            <div class="college-header">
+                <div class="logo">
+                    <img src="logo.jpg" alt="Tilak Junior College Logo">
+                </div>
+                <h3 class="college-name" style="font-size: 1.8em;">Special Teachers' Day Recognition</h3>
+            </div>
+
+            <div id="certificate-content" class="certificate">
+                <!-- Certificate content will be populated here -->
+            </div>
+
+            <div style="margin-top: 40px;">
+                <p style="font-size: 1.3em; color: #495057; margin-bottom: 25px; font-style: italic;">
+                    "Teaching is the profession that teaches all other professions. Thank you for your dedication!" 
+                </p>
+                <button class="btn btn-primary" onclick="restartJourney()">🔄 Start New Journey</button>
+                <button class="btn btn-secondary" onclick="window.print()">🖨️ Print Certificate</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Updated to only 2 teacher-focused questions
+        const questions = [
+            {
+                id: 1,
+                text: "Do you prefer structured lesson plans and organized classroom management?",
+                category: "structured"
+            },
+            {
+                id: 2,
+                text: "Do you enjoy incorporating creative activities and innovative teaching methods in your classes?",
+                category: "creative"
+            }
+        ];
+
+        // Teacher personality profiles (simplified for 2 questions)
+        const profiles = {
+            structured_educator: {
+                title: "The Organized Educator",
+                description: "You are a master of structure and systematic teaching. Your students appreciate your clear expectations, well-planned lessons, and consistent classroom environment. You create a stable learning foundation that helps students succeed.",
+                traits: ["Excellent organization skills", "Clear communication", "Consistent classroom management", "Reliable and dependable"],
+                appreciation: "Your methodical approach to teaching creates a safe and predictable learning environment. Students know they can count on you for clear guidance and structured learning experiences.",
+                icon: "📚"
+            },
+            creative_innovator: {
+                title: "The Creative Innovator", 
+                description: "You bring imagination and creativity into every lesson. Your innovative teaching methods and artistic approaches make learning exciting and memorable. You inspire students to think outside the box and explore their creative potential.",
+                traits: ["Innovative teaching methods", "Creative problem-solving", "Inspiring and motivating", "Adaptable and flexible"],
+                appreciation: "Your creative spirit transforms ordinary lessons into extraordinary experiences. Students love how you make learning fun and engaging through your unique teaching approaches.",
+                icon: "🎨"
+            },
+            balanced_educator: {
+                title: "The Balanced Educator",
+                description: "You skillfully combine structure with creativity. Your teaching approach adapts to different situations, providing both stability and innovation. You understand that effective teaching requires both organization and flexibility.",
+                traits: ["Adaptable teaching style", "Balanced approach", "Student-centered focus", "Versatile methodology"],
+                appreciation: "Your ability to blend structure with creativity makes you uniquely effective. You provide the best of both worlds - stability when needed and innovation when appropriate.",
+                icon: "⚖️"
+            },
+            flexible_mentor: {
+                title: "The Flexible Mentor",
+                description: "You prioritize flexibility and student-centered learning. Your teaching style adapts to your students' needs, and you believe in learning through experience and exploration. You create a supportive and open learning environment.",
+                traits: ["Student-centered approach", "Flexible methodology", "Supportive mentorship", "Open to new ideas"],
+                appreciation: "Your flexibility and openness create an environment where every student feels valued. You adapt your teaching to meet individual needs and encourage student growth.",
+                icon: "🌱"
+            }
+        };
+
+        // Global variables
+        let currentQuestion = 0;
+        let answers = [];
+        let selectedAnswer = null;
+
+        // Page navigation functions
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            setTimeout(() => {
+                document.getElementById(pageId).classList.add('active');
+            }, 100);
+        }
+
+        function startJourney() {
+            showPage('questionnaire-page');
+            setTimeout(() => {
+                displayQuestion();
+            }, 300);
+        }
+
+        // Questionnaire functions
+        function displayQuestion() {
+            const question = questions[currentQuestion];
+            document.getElementById('question-text').textContent = question.text;
+            document.getElementById('question-counter').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+            
+            // Update progress bar
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progress-fill').style.width = progress + '%';
+            
+            // Reset answer selection
+            selectedAnswer = null;
+            document.querySelectorAll('.answer-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            // Hide error message
+            document.getElementById('error-message').classList.remove('show');
+            
+            // Show/hide navigation buttons
+            document.getElementById('prev-btn').style.display = currentQuestion > 0 ? 'inline-block' : 'none';
+            document.getElementById('next-btn').textContent = currentQuestion === questions.length - 1 ? 'See Your Results 🎯' : 'Next Question ➡️';
+        }
+
+        function selectAnswer(answer) {
+            selectedAnswer = answer;
+            document.querySelectorAll('.answer-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            event.target.classList.add('selected');
+            event.target.classList.add('success-animation');
+            
+            // Hide error message when answer is selected
+            document.getElementById('error-message').classList.remove('show');
+            
+            setTimeout(() => {
+                event.target.classList.remove('success-animation');
+            }, 600);
+        }
+
+        function nextQuestion() {
+            if (selectedAnswer === null) {
+                document.getElementById('error-message').classList.add('show');
+                return;
+            }
+            
+            // Save answer
+            answers[currentQuestion] = {
+                question: questions[currentQuestion].text,
+                answer: selectedAnswer,
+                category: questions[currentQuestion].category
+            };
+            
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                displayQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion();
+                
+                // Restore previous answer if exists
+                if (answers[currentQuestion]) {
+                    selectedAnswer = answers[currentQuestion].answer;
+                    document.querySelectorAll('.answer-btn').forEach(btn => {
+                        btn.classList.remove('selected');
+                        if ((btn.textContent.includes('Yes') && selectedAnswer === 'yes') ||
+                            (btn.textContent.includes('Not') && selectedAnswer === 'no')) {
+                            btn.classList.add('selected');
+                        }
+                    });
+                }
+            }
+        }
+
+        function showResults() {
+            // Calculate profile based on answers (simplified for 2 questions)
+            const yesAnswers = answers.filter(a => a.answer === 'yes');
+            const structuredYes = answers[0] && answers[0].answer === 'yes';
+            const creativeYes = answers[1] && answers[1].answer === 'yes';
+            
+            let profileKey = 'balanced_educator'; // default
+            
+            // Determine profile based on the 2 answers
+            if (structuredYes && creativeYes) {
+                profileKey = 'balanced_educator';
+            } else if (structuredYes && !creativeYes) {
+                profileKey = 'structured_educator';
+            } else if (!structuredYes && creativeYes) {
+                profileKey = 'creative_innovator';
+            } else {
+                profileKey = 'flexible_mentor';
+            }
+            
+            const profile = profiles[profileKey];
+            
+            // Display results
+            const resultHtml = `
+                <div class="profile-icon">${profile.icon}</div>
+                <h2 class="profile-title">${profile.title}</h2>
+                <p class="profile-description">${profile.description}</p>
+                <div class="traits-list">
+                    ${profile.traits.map(trait => `<div class="trait">✨ ${trait}</div>`).join('')}
+                </div>
+                <div class="special-message" style="margin-top: 25px;">
+                    <strong>What Makes You Special:</strong><br>
+                    ${profile.appreciation}
+                </div>
+            `;
+            
+            document.getElementById('profile-result').innerHTML = resultHtml;
+            
+            // Store profile for reward page
+            window.selectedProfile = profile;
+            
+            showPage('results-page');
+        }
+
+        function showReward() {
+            const profile = window.selectedProfile;
+            
+            const certificateHtml = `
+                <div class="certificate-title">🏆 Certificate of Excellence 🏆</div>
+                <div class="certificate-message">
+                    <strong>Presented to an Outstanding Educator</strong><br><br>
+                    In recognition of your exceptional teaching as<br>
+                    <strong>"${profile.title}"</strong><br><br>
+                    Your dedication to education and student success is truly inspiring!
+                </div>
+                <div class="special-message">
+                    ${profile.appreciation}<br><br>
+                    <strong>With gratitude from Tilak Junior College of Science and Commerce</strong><br>
+                    <em>Happy Teachers' Day - 5th September 2025</em>
+                </div>
+            `;
+            
+            document.getElementById('certificate-content').innerHTML = certificateHtml;
+            showPage('reward-page');
+        }
+
+        function restartJourney() {
+            currentQuestion = 0;
+            answers = [];
+            selectedAnswer = null;
+            showPage('welcome-page');
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enhanced button interactions
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.05)';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('selected')) {
+                        this.style.transform = 'translateY(0) scale(1)';
+                    }
+                });
+                
+                btn.addEventListener('click', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                    setTimeout(() => {
+                        if (!this.classList.contains('selected')) {
+                            this.style.transform = 'translateY(0) scale(1)';
+                        }
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
